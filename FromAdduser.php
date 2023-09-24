@@ -17,29 +17,36 @@
 <body>
     <div class="container my-2">
         <div class="card">
-            <div class="card-header p-3 bg-info text-center">Login</div>
+            <div class="card-header p-3 bg-info text-center">Add User</div>
             <div class="card-body">
 
-                <form method="post" action="chackLogin.php">
+                <form method="post" action="insertData.php">
                     <div class="input-group mb-2">
                         <span class="input-group-text">Username</span>
                         <input type="text" class="form-control" placeholder="Username" name="username">
                     </div>
 
-                    <div class="input-group ">
+                    <div class="input-group my-2">
                         <span class="input-group-text">Password</span>
                         <input type="password" class="form-control" placeholder="Password"name="password">
                     </div>
+                    <div class="input-group mb-2">
+                        <span class="input-group-text">Firstname</span>
+                        <input type="text" class="form-control" placeholder="Firstname" name="firstname">
+                    </div>
+
+                    <div class="input-group ">
+                        <span class="input-group-text">Lastname</span>
+                        <input type="password" class="form-control" placeholder="Lastname"name="lastname">
+                    </div>
                     <div class="row">
                         <div class="col">
-                            <input type="button" value="Add User " class="btn btn-success form-control"
-                            onclick="window.location.href='FromAdduser.php'">
+                            <input type="button" value="Back " class="btn btn-dark form-control"
+                            onclick="window.location.href='index.php'">
 
                         </div>
                         <div class="col">
-                            <input type="Submit" value="Login " class="btn btn-primary form-control">
-
-
+                            <input type="Submit" value="Insert " class="btn btn-warning form-control">
                         </div>
                     </div>
             </div>

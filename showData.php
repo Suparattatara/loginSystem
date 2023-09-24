@@ -16,6 +16,7 @@
 
 <?php
 session_start();
+require 'checkSession.php';
 $level = $_SESSION['level'];
 $username = $_SESSION['username'] ;
 $fullname = $_SESSION['firstName'] .'  '. $_SESSION['lastName'];
@@ -23,8 +24,7 @@ $fullname = $_SESSION['firstName'] .'  '. $_SESSION['lastName'];
 <body>
     <div class="container">
         <div class="alert alert-success">
-            <strong>Level : </strong> <?php
-            echo $level ?>
+            <strong>Level : </strong> <?php echo $level ?> <button class="btn btn-danger" onclick="window.location.href='logout.php'">Logout</button>
         </div>
         <div class="alert alert-success">
             <strong>Usename : </strong> <?php
@@ -35,4 +35,38 @@ $fullname = $_SESSION['firstName'] .'  '. $_SESSION['lastName'];
             echo $fullname ?>
         </div>
     </div>
+
+    <div class="container">
+        <table class="table">
+            <tableHead>
+                <tr>
+                    <th>SECT_ID</th>
+                    <th>SECT_NAME</th>
+                    <th>SECT_BUILDING_NAME</th>
+                    <th>SECT_TELEPHONE</th>
+                </tr>
+            </tableHead>
+            <tableBody>
+                <?php
+                $sql = "SELECT * FROM tb_section";
+                require "connect.php";
+                $stmt = $conn->prepare($sql);
+                $stmt->execute();
+                $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                foreach($rows as $row){
+                    echo"<tr>";
+                    echo"<td>".$row['SECT_ID']."</td>";
+                    echo"<td>".$row['SECT_NAME']."</td>";
+                    echo"<td>".$row['SECT_BUILDING_NAME']."</td>";
+                    echo"<td>".$row['SECT_TELEPHONE']."</td>";
+                    echo"</tr>";
+                    
+
+                }
+                ?>
+
+            </tableBody>
+    </div>
+
 </body>
+</html>

@@ -1,7 +1,7 @@
 <?php
 $username = $_POST['username'];
 $password = $_POST['password'];
-echo $username . "  " . $password;
+// echo $username . "  " . $password;
 $sql = "SELECT * FROM tb_userlogin WHERE username = '$username' AND password = '$password' ";
 require "connect.php";
 $stmt = $conn->prepare($sql);
